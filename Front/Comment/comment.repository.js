@@ -1,10 +1,5 @@
-function Repository() {
-    // this = {}
-    // return this;
-}
-
 class CommentRepository{
-    constructor(mysql){
+    constructor({mysql}){
         this.mysql = mysql;
     }
 
