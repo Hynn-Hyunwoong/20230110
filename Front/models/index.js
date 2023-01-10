@@ -13,11 +13,11 @@ const pool = mysql.createPool({
 
 
 // Process.Env Test
-console.log(host)
-console.log(port)
-console.log(user)
-console.log(password)
-console.log(database)
+// console.log(host)
+// console.log(port)
+// console.log(user)
+// console.log(password)
+// console.log(database)
 
 
 // DB Connect Test
