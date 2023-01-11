@@ -38,6 +38,6 @@ app.use((error,req,res,next) => {
 // console.log(process.env.PORT)
 // Launcher of Server.js
 app.listen(Config.port, async () =>{
-    await sequelize.sync({ force : true })
+    await sequelize.sync({ force : false })
     console.log(`This is front server start only port on ${Config.port}`)
 })

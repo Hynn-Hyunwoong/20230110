@@ -38,6 +38,6 @@ const Config = {
     },
 }
 
-console.log(Config.db)
+// console.log(Config.db)
 
 module.exports = Config;
