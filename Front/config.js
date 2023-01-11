@@ -13,17 +13,18 @@ const Config = {
     exception : {
         HttpException
     },
+    env : process.env.NODE_ENV || 'Development',
     port : process.env.PORT || 3000,
     db : {
         // host,port,user,password,database,
-        // dialet - What is your database ? mysql...
-        development : {
+        // dialect - What is your database ? mysql...
+        Development : {
             username : user,
             password : password,
             database : database,
             port : port,
             host : host,
-            dialet : "mysql"
+            dialect : "mysql"
         },
         test: {
             username : user,
@@ -31,12 +32,12 @@ const Config = {
             database : database,
             port : port,
             host : host,
-            dialet : "mysql",
+            dialect : "mysql",
             logging : false,
         },
     },
 }
 
-// console.log(Config.db)
+console.log(Config.db)
 
 module.exports = Config;

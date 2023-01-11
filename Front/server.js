@@ -3,8 +3,9 @@ const express = require('express');
 const app = express();
 const Config = require('./config');
 const HttpException = require('./Exceptions/HTTPException');
+const { sequelize } = require("./models/")
 
-
+// console.log(sequelize)
 // Router
 const router = require("./routes");
 
@@ -36,6 +37,7 @@ app.use((error,req,res,next) => {
 // console.log('test', config.port);
 // console.log(process.env.PORT)
 // Launcher of Server.js
-app.listen(Config.port, () =>{
+app.listen(Config.port, async () =>{
+    await sequelize.sync({ force : true })
     console.log(`This is front server start only port on ${Config.port}`)
 })
