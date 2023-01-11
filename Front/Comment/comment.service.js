@@ -1,15 +1,17 @@
 class CommentService{
-    constructor({ CommentRepository }){
+    constructor({ CommentRepository, Config }){
         this.CommentRepository = CommentRepository
+        this.Config = Config
+        this.HttpException = Config.exception.HttpException
         };
         
         async list(){
             try{
                 const list = await this.CommentRepository.findAll();
-                if(list.length === 0) throw new Error('No content found, Please try again.')
+                throw 'No content found, Please try again.'
                 return list;
             }catch(e){
-                throw new Error(e);
+                throw new this.HttpException(e);
             }
         }
     }

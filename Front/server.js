@@ -1,7 +1,8 @@
 //NPM Modules 
 const express = require('express');
 const app = express();
-const config = require('./config');
+const Config = require('./config');
+const HttpException = require('./Exceptions/HTTPException');
 
 
 // Router
@@ -15,13 +16,26 @@ app.use((error,req,res,next) => {
     // If failure Sign-in, response code 400, not match 500. 
     // So, result ins not function exception handler. 
     // cause by only response 500 error.
-    if(error instanceof Error){
-        
+    // if(error instanceof Error){}
+    console.error(error);
+    // If Error target settings, Error is last setting, first target and then error.
+    if(error instanceof HttpException){
+        res.json({
+            isError : true,
+            message : error.message,
+            status : error.status,
+        })
+    }else if(error instanceof Error){
+        res.json({
+            isError : true,
+            message : error.message,
+        })
     }
+   
 });
 // console.log('test', config.port);
 // console.log(process.env.PORT)
 // Launcher of Server.js
-app.listen(config.port, () =>{
-    console.log(`This is front server start only port on ${config.port}`)
+app.listen(Config.port, () =>{
+    console.log(`This is front server start only port on ${Config.port}`)
 })

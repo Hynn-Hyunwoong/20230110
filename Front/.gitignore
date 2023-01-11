@@ -1,4 +1,4 @@
 node_modules/
-DS_Store
-package-lock
-.env
+DS_Store.*
+package-lock/*
+.env.*
