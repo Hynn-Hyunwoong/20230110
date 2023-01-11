@@ -15,7 +15,25 @@ const Config = {
     },
     port : process.env.PORT || 3000,
     db : {
-        host,port,user,password,database,
+        // host,port,user,password,database,
+        // dialet - What is your database ? mysql...
+        development : {
+            username : user,
+            password : password,
+            database : database,
+            port : port,
+            host : host,
+            dialet : "mysql"
+        },
+        test: {
+            username : user,
+            password : password,
+            database : database,
+            port : port,
+            host : host,
+            dialet : "mysql",
+            logging : false,
+        },
     },
 }
 
